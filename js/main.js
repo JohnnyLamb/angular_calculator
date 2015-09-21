@@ -1,45 +1,44 @@
-var arrayOfClickButtons = [];
-var total = [];
+// var arrayOfClickButtons = [];
+// var total = [];
 
-$("span").not($(".operator")).on("click", function(){
-  var btnClicked = $(this).html();
-  addToScreen(btnClicked);
-  arrayOfClickButtons.push(btnClicked);
-  console.log(arrayOfClickButtons + "is num array");
-  console.log(total + " is total array");
-});
+// $("span").not($(".operator")).on("click", function(){
+//   var btnClicked = $(this).html();
+//   addToScreen(btnClicked);
+//   arrayOfClickButtons.push(btnClicked);
+//   console.log(arrayOfClickButtons + "is num array");
+//   console.log(total + " is total array");
+// });
 
-$(".operator").not($("#cancel, #calc")).on("click", function(){
+// $(".operator").not($("#cancel, #calc")).on("click", function(){
 
-  var btnClicked = $(this).html();
-  addToScreen(btnClicked);
-  total.push(arrayOfClickButtons.join(""));
-  arrayOfClickButtons = [];
-  total.push(btnClicked);
-  console.log(arrayOfClickButtons + "is num array");
-  console.log(total + " is total array");
-});
+//   var btnClicked = $(this).html();
+//   addToScreen(btnClicked);
+//   total.push(arrayOfClickButtons.join(""));
+//   arrayOfClickButtons = [];
+//   total.push(btnClicked);
+//   console.log(arrayOfClickButtons + "is num array");
+//   console.log(total + " is total array");
+// });
 
-$("#cancel").on("click", function(e){
-  $("#screen").html("");
-  arrayOfClickButtons = [];
-  total = [];
-});
+// $("#cancel").on("click", function(e){
+//   $("#screen").html("");
+//   arrayOfClickButtons = [];
+//   total = [];
+// });
 
-$("#calc").on("click", function(e){
-  total.push(arrayOfClickButtons.join(""));
-  var answer =calculate2(total);
-  $("#screen").html(answer);
-  arrayOfClickButtons = [answer];
-  total = [];
-  console.log(arrayOfClickButtons + "is num array");
-  console.log(total + " is total array");
-});
+// $("#calc").on("click", function(e){
+//   total.push(arrayOfClickButtons.join(""));
+//   var answer =calculate2(total);
+//   $("#screen").html(answer);
+//   arrayOfClickButtons = [answer];
+//   total = [];
+//   console.log(arrayOfClickButtons + "is num array");
+//   console.log(total + " is total array");
+// });
 
-function addToScreen(btn){
-  $("#screen").append(btn + '&nbsp;');
-}
-
+// function addToScreen(btn){
+//   $("#screen").append(btn + '&nbsp;');
+// }
 
 function calculate2(arr){
   var  workArr = arr.slice(0);
@@ -68,23 +67,23 @@ function calculate2(arr){
   return workArr;
 }
 
-// try to solidify ubove into a loop.
-function calculate3(arr){
-  var  workArr = arr.slice(0);
-  while (workArr.length !== 1){
-    var answer;
-    for (var n = 0; n < 3; n++) {
-      for (var i = 0; i < workArr.length; i++) {
-        if(workArr[i]=== "x"){
-          answer = parseFloat(workArr[i-1]) * parseFloat(workArr[i+1]);
-          workArr.splice([i-1],3,answer);
-        }
-      }
-    }
-  }
-}
+// // try to solidify ubove into a loop.
+// function calculate3(arr){
+//   var  workArr = arr.slice(0);
+//   while (workArr.length !== 1){
+//     var answer;
+//     for (var n = 0; n < 3; n++) {
+//       for (var i = 0; i < workArr.length; i++) {
+//         if(workArr[i]=== "x"){
+//           answer = parseFloat(workArr[i-1]) * parseFloat(workArr[i+1]);
+//           workArr.splice([i-1],3,answer);
+//         }
+//       }
+//     }
+//   }
+// }
 
-function calculate4(arr){
-  answer = arr.join("").replace("x","*");
-  return eval(answer);
-}
+// function calculate4(arr){
+//   answer = arr.join("").replace("x","*");
+//   return eval(answer);
+// }
